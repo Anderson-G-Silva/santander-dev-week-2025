@@ -33,13 +33,13 @@ classDiagram
     class Account {
         +String Number
         +String Agency
-        +float Balance
-        +float Limit
+        +BigDecimal Balance
+        +BigDecimal Limit
     }
 
     class Card {
         +String number
-        +float limit
+        +BigDecimal limit
     }
 
     class Feature {
@@ -54,7 +54,7 @@ classDiagram
 
     Client "N" *-- "1" Address
     Client "1" *-- "1" Account
-    Client "1" *-- "1..N" Card
+    Client "1" *-- "1" Card
     Client "1" *-- "1..N" Feature
     Client "1" *-- "1..N" News
 ```
