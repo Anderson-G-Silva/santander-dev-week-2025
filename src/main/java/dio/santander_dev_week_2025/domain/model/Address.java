@@ -3,7 +3,7 @@ package dio.santander_dev_week_2025.domain.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-
+// carrega os dados com base na pesquisa via API da ViaCep
 @Entity(name = "tb_address")
 public class Address {
     @Id

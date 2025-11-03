@@ -3,7 +3,9 @@ package dio.santander_dev_week_2025;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableFeignClients
 @SpringBootApplication
 public class Application {
 

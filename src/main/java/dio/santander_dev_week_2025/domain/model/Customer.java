@@ -22,7 +22,7 @@ public class Customer {
     private String name;
     @CPF
     private String cpf;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private Address address;
     @OneToOne(cascade = CascadeType.ALL) // cascade ->  permite que operações (como salvar, atualizar ou deletar) sejam propagadas automaticamente de uma entidade para suas entidades associadas.
     private Account account;

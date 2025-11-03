@@ -5,23 +5,32 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.PostPersist;
 
 import java.math.BigDecimal;
+import java.util.Random;
 
 @Entity(name = "tb_account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true, nullable = false)
+    @Column(updatable = true, unique = true)
     private String number;
-    @Column(nullable = false)
+    @Column(updatable = false)
     private String agency;
     @Column(precision = 13, scale = 2)
     private BigDecimal balance;
     @Column(name = "additional_limit", precision = 13, scale = 2)
     private BigDecimal limit;
+
+    // cria o número da conta com base no id
+    @PostPersist
+    private void createNumber() {
+        Random random = new Random();
+        this.number = String.format("%08d",this.id)+"-"+ random.nextInt(9 - 0);
+
+    }
 
     public Long getId() {
         return id;
@@ -43,8 +52,9 @@ public class Account {
         return agency;
     }
 
+    // numero da agência padrão e não permite alteração
     public void setAgency(String agency) {
-        this.agency = agency;
+        this.agency = "0109";
     }
 
     public BigDecimal getBalance() {

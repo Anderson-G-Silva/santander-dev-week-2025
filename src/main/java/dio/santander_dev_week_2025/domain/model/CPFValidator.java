@@ -5,7 +5,7 @@ import jakarta.validation.ConstraintValidatorContext;
 import java.util.InputMismatchException;
 
 public class CPFValidator implements ConstraintValidator<CPF, String> {
-
+    // validador de CPF
     @Override
     public boolean isValid(String cpf, ConstraintValidatorContext context) {
         if (cpf == null || cpf.trim().isEmpty()) {
