@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EntityScan (basePackages = "dio.santander_dev_week_2025.domain.model")
 @EnableFeignClients
 @SpringBootApplication
 public class Application {
